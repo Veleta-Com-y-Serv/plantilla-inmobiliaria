@@ -1,0 +1,52 @@
+---
+// Contacto: panel marino con los datos de la oficina a la izquierda y formulario a la derecha.
+// «Me interesa» sale de `opciones` (cadena separada por «;»); si está vacía, de los accesos de la portada (hero.items).
+import { seccion, site, tel, mapa, whatsapp } from '../../data/site';
+import Seccion from '../ui/Seccion.astro';
+import Icono from '../ui/Icono.astro';
+import FormularioContacto from '../ui/FormularioContacto.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const c = site.contacto;
+const desdeTexto = typeof s?.opciones === 'string' ? s.opciones.split(';').map((o) => o.trim()).filter(Boolean) : [];
+const opciones = desdeTexto.length ? desdeTexto : (site.secciones.hero?.items ?? []).map((i) => i.titulo).filter(Boolean);
+const datos = [
+  c.telefono && { icono: 'telefono', etiqueta: 'Teléfono', valor: c.telefono, url: tel(c.telefono) },
+  c.whatsapp && { icono: 'whatsapp', etiqueta: 'WhatsApp', valor: c.whatsapp, url: whatsapp(c.whatsapp) },
+  c.email && { icono: 'correo', etiqueta: 'Email', valor: c.email, url: `mailto:${c.email}` },
+  c.direccion && { icono: 'mapa', etiqueta: 'Oficina', valor: c.direccion, url: mapa(c.direccion) },
+  c.horario && { icono: 'reloj', etiqueta: 'Horario', valor: c.horario, url: '' },
+].filter(Boolean) as { icono: string; etiqueta: string; valor: string; url: string }[];
+---
+
+{
+  s && (
+    <Seccion id={Astro.props.id} class="bg-[var(--c-suave)]">
+      <div class="ficha grid overflow-hidden shadow-[var(--sombra)] lg:grid-cols-12">
+        <div class="fondo-oscuro bg-primario p-6 text-white sm:p-10 lg:col-span-5">
+          {s.antetitulo && <p class="antetitulo">{s.antetitulo}</p>}
+          {s.titulo && <h2 class="titulo-seccion">{s.titulo}</h2>}
+          {s.texto && <p class="mt-4 text-white/85">{s.texto}</p>}
+          {datos.length > 0 && (
+            <dl class="mt-8 grid gap-5">
+              {datos.map((d) => (
+                <div class="flex gap-4">
+                  <span class="grid h-10 w-10 shrink-0 place-items-center rounded-[var(--radio)] border border-white/20 text-acento">
+                    <Icono nombre={d.icono} tam={18} />
+                  </span>
+                  <div class="min-w-0">
+                    <dt class="text-xs font-bold uppercase tracking-[.12em] text-white/60">{d.etiqueta}</dt>
+                    <dd class="mt-0.5 break-words font-semibold">{d.url ? <a href={d.url} class="hover:text-acento">{d.valor}</a> : d.valor}</dd>
+                  </div>
+                </div>
+              ))}
+            </dl>
+          )}
+        </div>
+        <div class="bg-[var(--c-tarjeta)] p-6 sm:p-10 lg:col-span-7">
+          <FormularioContacto boton={s.cta?.texto || 'Enviar'} opciones={opciones} />
+        </div>
+      </div>
+    </Seccion>
+  )
+}

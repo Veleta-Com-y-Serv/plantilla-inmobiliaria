@@ -1,0 +1,21 @@
+# Metadatos de la plantilla para el catálogo de NoExpertise.
+id: inmobiliaria
+nombre: Inmobiliaria
+descripcion: Web clara para inmobiliarias, con fichas de pisos, filtro de venta y alquiler y valoración.
+sectores: [inmobiliaria, administracion-fincas]
+secciones:
+  - { id: hero, nombre: Portada }
+  - { id: inmuebles, nombre: Inmuebles }
+  - { id: servicios, nombre: Servicios }
+  - { id: zonas, nombre: Zonas }
+  - { id: valoracion, nombre: Valora tu vivienda }
+  - { id: equipo, nombre: Equipo }
+  - { id: opiniones, nombre: Opiniones }
+  - { id: contacto, nombre: Contacto }
+estilo: profesional
+plan_minimo: presencia
+version: 1.0.0
+base: astrowind
+demo_url: https://demo-plantilla-inmobiliaria.noexpertise.com
+activa: true
+orden: 80

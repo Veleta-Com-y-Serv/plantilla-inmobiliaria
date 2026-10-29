@@ -1,0 +1,30 @@
+---
+// Servicios: banda gris azulada con fichas de filete dorado superior e icono en cuadro marino.
+import { seccion } from '../../data/site';
+import Seccion from '../ui/Seccion.astro';
+import Titular from '../ui/Titular.astro';
+import Icono from '../ui/Icono.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const items = s ? s.items.filter((i) => i.titulo) : [];
+---
+
+{
+  s && (
+    <Seccion id={Astro.props.id} class="bg-[var(--c-suave)]">
+      <Titular antetitulo={s.antetitulo} titulo={s.titulo} texto={s.texto} />
+      {items.length > 0 && (
+        <ul class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          {items.map((it) => (
+            <li class="ficha border-t-[3px] border-t-acento p-6">
+              <span class="icono-cuadro"><Icono nombre={it.icono} tam={22} /></span>
+              <h3 class="mt-5 text-lg text-primario">{it.titulo}</h3>
+              {it.texto && <p class="mt-2 text-sm opacity-80">{it.texto}</p>}
+            </li>
+          ))}
+        </ul>
+      )}
+      {s.cta?.url && <p class="mt-10"><a class="btn" href={s.cta.url}>{s.cta.texto}</a></p>}
+    </Seccion>
+  )
+}

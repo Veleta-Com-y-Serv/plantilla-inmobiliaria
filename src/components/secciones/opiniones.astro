@@ -1,0 +1,30 @@
+---
+// Opiniones: testimonios (texto, autor) en fichas blancas sobre banda gris; `nota` opcional con el origen (p. ej. Google).
+// Sin testimonios no se pinta.
+import { seccion } from '../../data/site';
+import Seccion from '../ui/Seccion.astro';
+import Titular from '../ui/Titular.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const testimonios = s ? s.testimonios.filter((t) => t.texto) : [];
+const nota = s && typeof s.nota === 'string' ? s.nota : '';
+---
+
+{
+  s && testimonios.length > 0 && (
+    <Seccion id={Astro.props.id} class="bg-[var(--c-suave)]">
+      <Titular antetitulo={s.antetitulo} titulo={s.titulo} texto={s.texto} />
+      <ul class="grid gap-5 md:grid-cols-3">
+        {testimonios.map((t) => (
+          <li class="ficha flex flex-col p-6">
+            <span class="font-serif text-6xl leading-[.5] text-acento" aria-hidden="true">&ldquo;</span>
+            <blockquote class="mt-4 flex-1">{t.texto}</blockquote>
+            {t.autor && <p class="mt-5 border-t border-texto/10 pt-4 text-sm font-bold text-primario">{t.autor}</p>}
+          </li>
+        ))}
+      </ul>
+      {nota && <p class="mt-6 text-sm opacity-70">{nota}</p>}
+    </Seccion>
+  )
+}
+

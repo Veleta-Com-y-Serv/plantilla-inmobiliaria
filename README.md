@@ -1,0 +1,16 @@
+# Plantilla NoExpertise · Inmobiliaria
+
+Web clara para inmobiliarias, con fichas de pisos, filtro de venta y alquiler y valoración.
+
+- Sectores: inmobiliaria, administracion-fincas. Estilo: profesional. Plan mínimo: presencia.
+- Secciones: hero, inmuebles, servicios, zonas, valoracion, equipo, opiniones, contacto (+ `texto` genérico).
+- Campos propios: `hero.items[].url`, `inmuebles[]` (titulo, zona, precio, operacion, metros, habitaciones, banos, texto, imagen, destacado), `opiniones.nota`, `contacto.opciones`.
+- Contenido editable en `site.yaml`; metadatos en `template.yaml`; reglas para el agente en `CLAUDE.md`; fotos a generar en `fotos.json`.
+
+```
+npm ci
+npm run dev      # desarrollo
+npm run build    # web estática en dist/
+```
+
+Basada en [AstroWind](https://github.com/onwidget/astrowind) © onWidget, licencia MIT (`LICENSE-ASTROWIND.md`). Imágenes de relleno (`public/placeholders/`) dibujadas para esta plantilla, sin licencias de terceros.

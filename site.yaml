@@ -1,0 +1,130 @@
+# Contenido de la web. Es lo único que rellena la plataforma NoExpertise.
+# Las secciones se muestran en el orden de este fichero. Para ocultar una: activa: false.
+# Apartado nuevo: un id propio (es su ancla, /#id) con `tipo:` = el diseño de otra sección o `texto`.
+nombre: Almonte Hogar Inmobiliaria
+eslogan: Compra, venta y alquiler de viviendas en Cáceres y alrededores.
+sector: inmobiliaria
+logo: ""          # ruta a una imagen en public/ (p. ej. /logo.svg). Vacío = nombre en texto.
+colores:
+  primario: "#16294a"
+  acento: "#c19a4b"
+  fondo: "#ffffff"
+  texto: "#1b2230"
+contacto:
+  telefono: "927 21 46 08"
+  email: hola@almontehogar.es
+  direccion: Avenida de España 14, local 2, 10002 Cáceres
+  horario: Lunes a viernes de 9:30 a 14:00 y de 17:00 a 20:00. Sábados de 10:00 a 13:30.
+  whatsapp: "+34 659 21 46 08"
+redes:
+  instagram: https://www.instagram.com/
+  facebook: https://www.facebook.com/
+  linkedin: ""
+menu:
+  - { texto: Inmuebles, url: "/#inmuebles" }
+  - { texto: Servicios, url: "/#servicios" }
+  - { texto: Zonas, url: "/#zonas" }
+  - { texto: Equipo, url: "/#equipo" }
+  - { texto: Contacto, url: "/#contacto" }
+boton_cabecera: { texto: Vender mi casa, url: "/#valoracion" }
+seo:
+  titulo: Almonte Hogar · Inmobiliaria en Cáceres
+  descripcion: Pisos, casas y locales en venta y alquiler en Cáceres. Valoramos tu vivienda sin coste y te acompañamos hasta la firma.
+  tipo: RealEstateAgent   # tipo de schema.org
+marca_pie: true   # «Web creada con NoExpertise» en el pie
+
+secciones:
+  hero:
+    activa: true
+    antetitulo: Inmobiliaria en Cáceres desde 2009
+    titulo: Encuentra tu casa en Cáceres sin perder el tiempo
+    texto: Pisos, casas y locales en la ciudad y en los pueblos de alrededor. Te enseñamos solo lo que encaja contigo.
+    imagen: /fotos/hero.jpg
+    cta: { texto: Ver inmuebles, url: "/#inmuebles" }
+    cta_secundario: { texto: Valorar mi vivienda, url: "/#valoracion" }
+    items:   # accesos de la tarjeta sobre la foto (titulo, texto, icono, url)
+      - { titulo: Comprar, texto: Pisos y casas en venta, icono: casa, url: "/#inmuebles" }
+      - { titulo: Alquilar, texto: Viviendas y locales en alquiler, icono: llave, url: "/#inmuebles" }
+      - { titulo: Vender, texto: Valoración de tu vivienda sin coste, icono: etiqueta, url: "/#valoracion" }
+
+  inmuebles:
+    activa: true
+    antetitulo: Inmuebles
+    titulo: Viviendas disponibles ahora
+    texto: Una selección de lo que tenemos esta semana. Si no ves lo que buscas, pregúntanos.
+    cta: { texto: Busco algo concreto, url: "/#contacto" }
+    inmuebles:
+      - { titulo: Piso reformado con garaje, zona: "Centro · Cánovas", precio: "189.000 €", operacion: Venta, metros: "112", habitaciones: "3", banos: "2", texto: "Exterior, con ascensor y plaza de garaje en el mismo edificio.", imagen: /fotos/inmueble-1.jpg, destacado: true }
+      - { titulo: Ático con terraza, zona: Nuevo Cáceres, precio: "850 €/mes", operacion: Alquiler, metros: "85", habitaciones: "2", banos: "1", texto: Terraza de 30 m² con vistas a la sierra. Sin muebles., imagen: /fotos/inmueble-2.jpg, destacado: false }
+      - { titulo: Casa de piedra con patio, zona: Parte Antigua, precio: "265.000 €", operacion: Venta, metros: "160", habitaciones: "4", banos: "2", texto: Rehabilitada en 2021. Patio interior y vigas de madera vista., imagen: /fotos/inmueble-3.jpg, destacado: true }
+      - { titulo: Chalet con piscina, zona: Sierra de Fuentes, precio: "248.000 €", operacion: Venta, metros: "210", habitaciones: "4", banos: "3", texto: Parcela de 600 m² con piscina y barbacoa. A 10 minutos de Cáceres., imagen: /fotos/inmueble-4.jpg, destacado: false }
+      - { titulo: Piso junto al campus, zona: Mejostilla, precio: "620 €/mes", operacion: Alquiler, metros: "90", habitaciones: "3", banos: "1", texto: Amueblado y con calefacción central. Libre en septiembre., imagen: /fotos/inmueble-5.jpg, destacado: false }
+      - { titulo: Local con escaparate, zona: Avenida de Alemania, precio: "95.000 €", operacion: Venta, metros: "74", habitaciones: "", banos: "1", texto: Diáfano y a pie de calle. Preparado para cualquier negocio., imagen: /fotos/inmueble-6.jpg, destacado: false }
+      - { titulo: Adosado con jardín, zona: Casar de Cáceres, precio: "139.000 €", operacion: Venta, metros: "145", habitaciones: "3", banos: "2", texto: "Tres plantas, jardín delantero y trastero.", imagen: /fotos/inmueble-7.jpg, destacado: false }
+      - { titulo: Estudio luminoso, zona: Parte Antigua, precio: "480 €/mes", operacion: Alquiler, metros: "42", habitaciones: "1", banos: "1", texto: Amueblado y a dos minutos de la Plaza Mayor., imagen: /fotos/inmueble-8.jpg, destacado: false }
+
+  servicios:
+    activa: true
+    antetitulo: Servicios
+    titulo: Te acompañamos de la primera visita a la firma
+    texto: Nos ocupamos del papeleo, las visitas y la negociación. Tú solo decides.
+    items:
+      - { titulo: Compra, texto: "Buscamos por ti, filtramos y te acompañamos a cada visita.", icono: lupa }
+      - { titulo: Venta, texto: "Valoración, fotos, anuncio en los portales y negociación con los compradores.", icono: etiqueta }
+      - { titulo: Alquiler, texto: "Seleccionamos inquilinos con garantías y preparamos el contrato.", icono: llave }
+      - { titulo: Gestión de alquileres, texto: "Cobros, incidencias y fianzas. Tú cobras cada mes sin preocuparte.", icono: documento }
+
+  zonas:
+    activa: true
+    antetitulo: Zonas
+    titulo: Conocemos cada barrio
+    texto: Trabajamos en Cáceres capital y en los pueblos a menos de veinte minutos.
+    imagen: /fotos/zonas.jpg
+    items:
+      - { titulo: Parte Antigua, texto: Casas con historia y pisos rehabilitados. }
+      - { titulo: "Centro · Cánovas", texto: Pisos amplios junto al paseo. }
+      - { titulo: Nuevo Cáceres, texto: Zona tranquila con colegios y parques. }
+      - { titulo: Mejostilla, texto: Cerca del campus y bien comunicada. }
+      - { titulo: Casar de Cáceres }
+      - { titulo: Malpartida de Cáceres }
+      - { titulo: Sierra de Fuentes }
+      - { titulo: Aldea Moret }
+
+  valoracion:
+    activa: true
+    antetitulo: ¿Quieres vender?
+    titulo: Te decimos cuánto vale tu casa, sin compromiso
+    texto: Visitamos tu vivienda, la comparamos con ventas reales de la zona y te damos un precio en 48 horas.
+    imagen: /fotos/valoracion.jpg
+    cta: { texto: Pedir valoración gratuita, url: "/#contacto" }
+    items:
+      - { titulo: Precio realista desde el primer día, texto: Sin inflar el precio para luego bajarlo. }
+      - { titulo: Fotos cuidadas y anuncio en los portales, texto: Tu casa se ve bien y llega a más gente. }
+      - { titulo: Un solo agente de principio a fin, texto: Siempre sabes con quién hablar. }
+
+  equipo:
+    activa: true
+    antetitulo: Equipo
+    titulo: Personas que conocen el mercado de Cáceres
+    personas:
+      - { nombre: Lucía Gallardo, cargo: Directora, foto: /placeholders/persona.svg, texto: Quince años vendiendo casas en la ciudad. }
+      - { nombre: Andrés Pizarro, cargo: Venta y valoraciones, foto: /placeholders/persona.svg, texto: Se encarga de valorar y anunciar cada vivienda. }
+      - { nombre: Marisa Durán, cargo: Alquileres, foto: /placeholders/persona.svg, texto: "Contratos, inquilinos y gestión del día a día." }
+      - { nombre: Jorge Mateos, cargo: Atención al cliente, foto: /placeholders/persona.svg, texto: Organiza las visitas y resuelve tus dudas. }
+
+  opiniones:
+    activa: true
+    antetitulo: Opiniones
+    titulo: Lo que cuentan quienes ya han confiado en nosotros
+    nota: Opiniones de clientes publicadas en Google.
+    testimonios:
+      - { texto: Vendimos el piso de mis padres en dos meses. Nos explicaron cada paso y no tuvimos que preocuparnos de nada., autor: "Carmen R. · Vendió en Cánovas" }
+      - { texto: Buscábamos casa con patio en la Parte Antigua y nos enseñaron justo lo que pedíamos. Sin visitas inútiles., autor: "Javier y Elena · Compraron en la Parte Antigua" }
+      - { texto: "Llevan el alquiler de mi piso desde hace años. Cobro puntual y, si hay una avería, lo arreglan ellos.", autor: "Tomás G. · Propietario" }
+
+  contacto:
+    activa: true
+    antetitulo: Contacto
+    titulo: Cuéntanos qué buscas
+    texto: Te llamamos hoy mismo. También puedes pasar por la oficina, sin cita.
+    opciones: "Comprar; Alquilar; Vender; Gestión de alquiler; Otra consulta"   # «Me interesa» del formulario, separadas por «;» (vacío = accesos de la portada)

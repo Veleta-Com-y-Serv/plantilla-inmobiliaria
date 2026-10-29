@@ -1,0 +1,48 @@
+---
+// Valoración: banda marina a todo el ancho con título, texto, razones (items) y botón dorado; imagen opcional a la derecha.
+import { seccion } from '../../data/site';
+import Imagen from '../ui/Imagen.astro';
+import Icono from '../ui/Icono.astro';
+interface Props { id: string }
+const { id } = Astro.props;
+const s = seccion(id);
+const items = s ? s.items.filter((i) => i.titulo) : [];
+---
+
+{
+  s && (
+    <section id={id} class="valoracion fondo-oscuro relative overflow-hidden bg-primario text-white">
+      <div class:list={['contenedor relative grid gap-10 py-16 md:py-20', s.imagen && 'lg:grid-cols-2 lg:items-center lg:gap-16']}>
+        <div class={s.imagen ? '' : 'max-w-3xl'}>
+          {s.antetitulo && <p class="antetitulo">{s.antetitulo}</p>}
+          {s.titulo && <h2 class="titulo-seccion">{s.titulo}</h2>}
+          {s.texto && <p class="mt-4 text-lg text-white/85">{s.texto}</p>}
+          {items.length > 0 && (
+            <ul class="mt-8 grid gap-4">
+              {items.map((it) => (
+                <li class="flex gap-3">
+                  <span class="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-[var(--radio)] bg-acento text-primario">
+                    <Icono nombre={it.icono || 'check'} tam={16} />
+                  </span>
+                  <div>
+                    <p class="font-bold">{it.titulo}</p>
+                    {it.texto && <p class="text-sm text-white/75">{it.texto}</p>}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+          {s.cta?.url && <p class="mt-9"><a class="btn-oro" href={s.cta.url}>{s.cta.texto}</a></p>}
+        </div>
+        {s.imagen && (
+          <Imagen src={s.imagen} alt="" ancho={1000} alto={750} respaldo="/placeholders/valoracion.svg" class="aspect-[4/3] w-full rounded-[var(--radio)] object-cover shadow-2xl ring-1 ring-white/15" />
+        )}
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .valoracion::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 6px; background: var(--c-acento); }
+  .valoracion::after { content: ""; position: absolute; right: -6rem; top: -6rem; width: 18rem; height: 18rem; border: 1px solid color-mix(in srgb, var(--c-acento) 40%, transparent); transform: rotate(45deg); pointer-events: none; }
+</style>

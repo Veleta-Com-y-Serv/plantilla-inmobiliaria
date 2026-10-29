@@ -1,0 +1,58 @@
+---
+// Cabecera blanca fija: marca + menú (site.yaml → menu) + teléfono siempre visible + botón (boton_cabecera, «Vender mi casa»).
+// En móvil: icono de teléfono y menú plegable sin JavaScript (<details>). Estilos: .cabecera--inmo en src/styles/global.css.
+import { site, tel } from '../data/site';
+import type { Enlace } from '../data/site';
+import Icono from './ui/Icono.astro';
+interface Props { variante?: string; cta?: Enlace | null }
+const { variante = 'inmo', cta = null } = Astro.props;
+const telefono = site.contacto.telefono;
+---
+
+<header class={`cabecera cabecera--${variante}`}>
+  <div class="contenedor cabecera-fila">
+    <a href="/" class="marca" aria-label={`${site.nombre}, inicio`}>
+      {
+        site.logo ? (
+          <img src={site.logo} alt={site.nombre} class="marca-logo" width="160" height="40" />
+        ) : (
+          <>
+            <span class="marca-inicial" aria-hidden="true">{site.nombre.trim().charAt(0)}</span>
+            <span class="marca-nombre">{site.nombre}</span>
+          </>
+        )
+      }
+    </a>
+    <nav class="cabecera-nav" aria-label="Menú principal">
+      {site.menu.map((e) => <a href={e.url}>{e.texto}</a>)}
+    </nav>
+    {
+      telefono && (
+        <a href={tel(telefono)} class="cabecera-telefono" aria-label={`Llamar al ${telefono}`}>
+          <span class="cabecera-telefono-icono"><Icono nombre="telefono" tam={18} /></span>
+          <span class="cabecera-telefono-numero">{telefono}</span>
+        </a>
+      )
+    }
+    {cta && cta.url && <a href={cta.url} class="btn-oro cabecera-cta">{cta.texto}</a>}
+    {
+      site.menu.length > 0 && (
+        <details class="menu-movil">
+          <summary>
+            <span class="menu-movil-icono" aria-hidden="true" />
+            <span>Menú</span>
+          </summary>
+          <nav class="menu-movil-panel" aria-label="Menú">
+            {site.menu.map((e) => <a href={e.url}>{e.texto}</a>)}
+            {cta && cta.url && <a href={cta.url} class="btn-oro">{cta.texto}</a>}
+          </nav>
+        </details>
+      )
+    }
+  </div>
+</header>
+<script is:inline>
+  document.querySelectorAll('.menu-movil a').forEach(function (a) {
+    a.addEventListener('click', function () { a.closest('details').open = false; });
+  });
+</script>

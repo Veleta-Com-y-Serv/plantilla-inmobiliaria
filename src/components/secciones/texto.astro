@@ -1,0 +1,50 @@
+---
+// Apartado de texto genérico: antetítulo, título, párrafos, imagen opcional con esquina dorada, lista con iconos y botón.
+// Lo usan los apartados nuevos que pide el cliente (site.yaml: `tipo: texto`).
+import { seccion, parrafos } from '../../data/site';
+import Seccion from '../ui/Seccion.astro';
+import Imagen from '../ui/Imagen.astro';
+import Icono from '../ui/Icono.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const items = s ? s.items.filter((i) => i.titulo) : [];
+---
+
+{
+  s && (
+    <Seccion id={Astro.props.id}>
+      <div class:list={['grid items-start gap-12', s.imagen ? 'lg:grid-cols-2 lg:gap-16' : 'max-w-3xl']}>
+        {s.imagen && (
+          <div class="texto-marco relative">
+            <Imagen src={s.imagen} alt="" ancho={1000} alto={750} respaldo="/placeholders/inmueble.svg" class="relative aspect-[4/3] w-full rounded-[var(--radio)] object-cover" />
+          </div>
+        )}
+        <div>
+          {s.antetitulo && <p class="antetitulo">{s.antetitulo}</p>}
+          {s.titulo && <h2 class="titulo-seccion">{s.titulo}</h2>}
+          <div class="mt-5 space-y-4 opacity-85">
+            {parrafos(s.texto).map((p) => <p>{p}</p>)}
+          </div>
+          {items.length > 0 && (
+            <ul class="mt-8 grid gap-3">
+              {items.map((it) => (
+                <li class="ficha flex gap-4 p-4">
+                  <span class="icono-cuadro h-9 w-9"><Icono nombre={it.icono || 'check'} tam={18} /></span>
+                  <div>
+                    <p class="font-bold text-primario">{it.titulo}</p>
+                    {it.texto && <p class="text-sm opacity-75">{it.texto}</p>}
+                  </div>
+                </li>
+              ))}
+            </ul>
+          )}
+          {s.cta?.url && <a class="btn mt-8" href={s.cta.url}>{s.cta.texto}</a>}
+        </div>
+      </div>
+    </Seccion>
+  )
+}
+
+<style>
+  .texto-marco::before { content: ""; position: absolute; left: -0.6rem; top: -0.6rem; width: 40%; height: 40%; border-radius: var(--radio); background: var(--c-acento); }
+</style>

@@ -1,0 +1,117 @@
+---
+// Inmuebles: fichas con foto 4:3, etiqueta de operación (Venta/Alquiler), precio en grande y fila de datos
+// (m², habitaciones, baños) que oculta los vacíos. Filtro Todo / Venta / Alquiler con un script mínimo,
+// solo si hay más de un tipo de operación. Con `inmuebles: []` se ve el texto y el botón (cta), sin rejilla.
+import { seccion } from '../../data/site';
+import type { Inmueble } from '../../data/site';
+import Seccion from '../ui/Seccion.astro';
+import Titular from '../ui/Titular.astro';
+import Imagen from '../ui/Imagen.astro';
+import Icono from '../ui/Icono.astro';
+interface Props { id: string }
+const s = seccion(Astro.props.id);
+const lista: Inmueble[] = s ? s.inmuebles.filter((i) => i.titulo) : [];
+const operaciones = [...new Set(lista.map((i) => i.operacion?.trim()).filter(Boolean))] as string[];
+const clave = (t = '') => t.trim().toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-');
+const soloNumero = (v = '') => /^\d+([.,]\d+)?$/.test(v.trim());
+const datos = (i: Inmueble) =>
+  [
+    i.metros && { icono: 'superficie', valor: soloNumero(i.metros) ? `${i.metros} m²` : i.metros },
+    i.habitaciones && { icono: 'cama', valor: soloNumero(i.habitaciones) ? `${i.habitaciones} hab.` : i.habitaciones },
+    i.banos && { icono: 'bano', valor: soloNumero(i.banos) ? `${i.banos} ${i.banos.trim() === '1' ? 'baño' : 'baños'}` : i.banos },
+  ].filter(Boolean) as { icono: string; valor: string }[];
+---
+
+{
+  s && (
+    <Seccion id={Astro.props.id} class="seccion-inmuebles">
+      <div data-filtros>
+        <div class="flex flex-wrap items-end justify-between gap-x-8 gap-y-4">
+          <Titular class="mb-0" antetitulo={s.antetitulo} titulo={s.titulo} texto={lista.length ? s.texto : ''} />
+          {operaciones.length > 1 && (
+            <div class="filtro" role="group" aria-label={s.titulo || s.antetitulo || undefined}>
+              <button type="button" data-filtro="" aria-pressed="true">Todo</button>
+              {operaciones.map((o) => <button type="button" data-filtro={clave(o)} aria-pressed="false">{o}</button>)}
+            </div>
+          )}
+        </div>
+
+        {lista.length > 0 ? (
+          <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {lista.map((i) => (
+              <li data-operacion={clave(i.operacion)} class="flex">
+                <article class:list={['ficha flex w-full flex-col overflow-hidden transition-shadow hover:shadow-[var(--sombra)]', i.destacado && 'ficha-destacada']}>
+                  <div class="relative">
+                    <Imagen src={i.imagen || '/placeholders/inmueble.svg'} alt={i.titulo} ancho={800} alto={600} respaldo="/placeholders/inmueble.svg" class="aspect-[4/3] w-full object-cover" />
+                    <div class="absolute left-3 top-3 flex gap-2">
+                      {i.operacion && <span class:list={['etiqueta-op', clave(i.operacion) === 'alquiler' && 'etiqueta-op--alquiler']}>{i.operacion}</span>}
+                    </div>
+                    {i.destacado && (
+                      <span class="absolute right-3 top-3 grid h-8 w-8 place-items-center rounded-[var(--radio)] bg-acento text-primario" title="Destacado">
+                        <Icono nombre="estrella" tam={18} />
+                        <span class="sr-only">Destacado</span>
+                      </span>
+                    )}
+                  </div>
+                  <div class="flex flex-1 flex-col p-5">
+                    {i.precio && <p class="text-2xl font-extrabold tracking-tight text-primario">{i.precio}</p>}
+                    <h3 class="mt-1 text-lg">{i.titulo}</h3>
+                    {i.zona && (
+                      <p class="mt-1 flex items-center gap-1.5 text-sm opacity-75">
+                        <Icono nombre="mapa" tam={15} class="shrink-0" />
+                        {i.zona}
+                      </p>
+                    )}
+                    {i.texto && <p class="mt-3 text-sm opacity-85">{i.texto}</p>}
+                    {datos(i).length > 0 && <div class="h-5 shrink-0" aria-hidden="true" />}
+                    {datos(i).length > 0 && (
+                      <ul class="mt-auto flex flex-wrap gap-x-5 gap-y-2 border-t border-texto/10 pt-4 text-sm font-semibold">
+                        {datos(i).map((d) => (
+                          <li class="flex items-center gap-1.5">
+                            <Icono nombre={d.icono} tam={16} class="shrink-0 text-[var(--c-acento-texto)]" />
+                            {d.valor}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <div class="ficha mt-8 flex flex-col gap-6 p-6 sm:flex-row sm:items-center sm:p-8">
+            <span class="icono-cuadro"><Icono nombre="casa" tam={22} /></span>
+            {s.texto && <p class="flex-1 text-lg">{s.texto}</p>}
+            {s.cta?.url && <a class="btn shrink-0" href={s.cta.url}>{s.cta.texto}</a>}
+          </div>
+        )}
+
+        {lista.length > 0 && s.cta?.url && (
+          <p class="mt-10 text-center"><a class="btn" href={s.cta.url}>{s.cta.texto}</a></p>
+        )}
+      </div>
+    </Seccion>
+  )
+}
+
+<style>
+  .ficha-destacada { border-color: var(--c-acento); box-shadow: inset 0 0 0 1px var(--c-acento); }
+</style>
+
+<script is:inline>
+  document.querySelectorAll('[data-filtros]').forEach(function (bloque) {
+    if (bloque.dataset.listo) return;
+    bloque.dataset.listo = '1';
+    var botones = bloque.querySelectorAll('[data-filtro]');
+    botones.forEach(function (b) {
+      b.addEventListener('click', function () {
+        var f = b.getAttribute('data-filtro');
+        botones.forEach(function (o) { o.setAttribute('aria-pressed', String(o === b)); });
+        bloque.querySelectorAll('[data-operacion]').forEach(function (li) {
+          li.hidden = !!f && li.getAttribute('data-operacion') !== f;
+        });
+      });
+    });
+  });
+</script>
