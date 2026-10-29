@@ -14,8 +14,65 @@ secciones:
   - { id: contacto, nombre: Contacto }
 estilo: profesional
 plan_minimo: presencia
-version: 1.0.0
+version: 1.1.0
 base: astrowind
 demo_url: https://demo-plantilla-inmobiliaria.noexpertise.com
 activa: true
 orden: 80
+
+# Asistente de puesta en marcha (NoExpertise): un paso por pantalla. Rutas del site sin índices;
+# tipos: texto y lista (la IA propone), datos, fotos, eleccion (colores y logo) y repaso.
+asistente:
+  - id: negocio
+    titulo: "Tu inmobiliaria"
+    pregunta: "¿Cómo se llama tu inmobiliaria y qué hacéis?"
+    ayuda: "Por ejemplo, si vendéis, alquiláis o lleváis alquileres, y en qué zona."
+    tipo: texto
+    campos: [nombre, eslogan, secciones.hero.antetitulo, secciones.hero.titulo, secciones.hero.texto, seo.descripcion]
+  - id: contacto
+    titulo: "Cómo te encuentran"
+    pregunta: "¿Dónde estáis y cómo os pueden llamar o escribir?"
+    ayuda: "Solo lo que quieras que vean tus clientes. Lo que dejes vacío no sale en tu web."
+    tipo: datos
+    campos: [contacto.telefono, contacto.whatsapp, contacto.email, contacto.direccion, contacto.horario, redes.instagram, redes.facebook]
+  - id: inmuebles
+    titulo: "Tus inmuebles"
+    pregunta: "Cuéntame los pisos o casas que tienes ahora. Uno por línea, con el precio si quieres."
+    ayuda: "Zona, metros, habitaciones, si es venta o alquiler… Si lo prefieres, añádelos luego en Contenido."
+    tipo: lista
+    campos: [secciones.inmuebles.inmuebles]
+  - id: servicios
+    titulo: "Qué ofreces"
+    pregunta: "¿Qué servicios dais? Uno por línea, como se lo dirías a un cliente."
+    tipo: texto
+    campos: [secciones.servicios.titulo, secciones.servicios.texto, secciones.servicios.items]
+  - id: zonas
+    titulo: "Tus zonas"
+    pregunta: "¿En qué barrios o pueblos trabajáis?"
+    tipo: texto
+    campos: [secciones.zonas.titulo, secciones.zonas.texto, secciones.zonas.items]
+  - id: valoracion
+    titulo: "Valora tu vivienda"
+    pregunta: "¿Cómo ayudáis a quien quiere vender? Cuéntame cómo valoráis una casa."
+    tipo: texto
+    campos: [secciones.valoracion.titulo, secciones.valoracion.texto, secciones.valoracion.items]
+  - id: equipo
+    titulo: "Tu equipo"
+    pregunta: "¿Quién forma el equipo? Nombre y qué hace cada uno, uno por línea."
+    ayuda: "Las fotos las pones luego en Contenido."
+    tipo: lista
+    campos: [secciones.equipo.personas]
+  - id: fotos
+    titulo: "Tus fotos"
+    pregunta: "Pon una foto de portada y, si quieres, alguna más."
+    ayuda: "Sube las tuyas o elige una del banco. Las que no cambies se quedan como están."
+    tipo: fotos
+    campos: [secciones.hero.imagen, secciones.zonas.imagen, secciones.valoracion.imagen]
+  - id: aspecto
+    titulo: "Colores y logo"
+    pregunta: "Elige los colores de tu web y, si tienes, tu logo."
+    tipo: eleccion
+    campos: [colores.primario, colores.acento, logo]
+  - id: repaso
+    titulo: "Repaso"
+    tipo: repaso
