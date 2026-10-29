@@ -122,6 +122,17 @@ secciones:
       - { texto: Buscábamos casa con patio en la Parte Antigua y nos enseñaron justo lo que pedíamos. Sin visitas inútiles., autor: "Javier y Elena · Compraron en la Parte Antigua" }
       - { texto: "Llevan el alquiler de mi piso desde hace años. Cobro puntual y, si hay una avería, lo arreglan ellos.", autor: "Tomás G. · Propietario" }
 
+  preguntas:
+    activa: true
+    antetitulo: Preguntas frecuentes
+    titulo: Dudas habituales al comprar, vender o alquilar
+    preguntas:
+      - { pregunta: "¿Cuánto cobráis por vender mi casa?", respuesta: "Un porcentaje del precio de venta que fijamos por escrito antes de empezar. Si no se vende, no cobramos." }
+      - { pregunta: "¿La valoración tiene coste?", respuesta: "No. Visitamos la vivienda, la comparamos con ventas reales de la zona y te damos un precio en 48 horas, sin compromiso." }
+      - { pregunta: "¿Qué documentos necesito para vender?", respuesta: "La escritura, el último recibo del IBI, el certificado energético y, si es un piso, el certificado de la comunidad. Te ayudamos a reunirlos." }
+      - { pregunta: "¿Me ayudáis con la hipoteca?", respuesta: "Sí. Te ponemos en contacto con bancos y asesores de confianza y te acompañamos hasta la firma en la notaría." }
+      - { pregunta: "¿Cómo elegís a los inquilinos?", respuesta: "Pedimos nóminas o contratos, comprobamos referencias y te presentamos solo a los que cumplen. La decisión final es tuya." }
+
   contacto:
     activa: true
     antetitulo: Contacto

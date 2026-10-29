@@ -2,6 +2,7 @@
 // Hero: foto a todo el ancho con velo marino a la izquierda, texto alineado a la izquierda y,
 // a la derecha (debajo en móvil), una tarjeta flotante con los accesos (items: titulo, texto, icono, url).
 import { seccion } from '../../data/site';
+import { altHero } from '../../lib/seo';
 import Imagen from '../ui/Imagen.astro';
 import Icono from '../ui/Icono.astro';
 interface Props { id: string; primera?: boolean }
@@ -14,7 +15,7 @@ const accesos = s ? s.items.filter((i) => i.titulo) : [];
   s && (
     <section id={id} class="hero-inmo fondo-oscuro relative isolate overflow-hidden bg-primario text-white">
       {s.imagen && (
-        <Imagen src={s.imagen} alt="" ancho={1920} alto={1080} prioridad={primera} respaldo="/placeholders/hero.svg" class="absolute inset-0 -z-10 h-full w-full object-cover" />
+        <Imagen src={s.imagen} alt={altHero()} ancho={1920} alto={1080} prioridad={primera} respaldo="/placeholders/hero.svg" class="absolute inset-0 -z-10 h-full w-full object-cover" />
       )}
       <div class="hero-inmo-velo absolute inset-0 -z-10" aria-hidden="true" />
       <div class:list={['contenedor grid items-center gap-10 py-14 md:py-20 lg:min-h-[38rem] lg:py-24', accesos.length > 0 && 'lg:grid-cols-12']}>

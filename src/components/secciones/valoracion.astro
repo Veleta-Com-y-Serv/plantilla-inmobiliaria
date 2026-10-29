@@ -1,6 +1,7 @@
 ---
 // Valoración: banda marina a todo el ancho con título, texto, razones (items) y botón dorado; imagen opcional a la derecha.
 import { seccion } from '../../data/site';
+import { altSeccion } from '../../lib/seo';
 import Imagen from '../ui/Imagen.astro';
 import Icono from '../ui/Icono.astro';
 interface Props { id: string }
@@ -35,7 +36,7 @@ const items = s ? s.items.filter((i) => i.titulo) : [];
           {s.cta?.url && <p class="mt-9"><a class="btn-oro" href={s.cta.url}>{s.cta.texto}</a></p>}
         </div>
         {s.imagen && (
-          <Imagen src={s.imagen} alt="" ancho={1000} alto={750} respaldo="/placeholders/valoracion.svg" class="aspect-[4/3] w-full rounded-[var(--radio)] object-cover shadow-2xl ring-1 ring-white/15" />
+          <Imagen src={s.imagen} alt={altSeccion(s)} ancho={1000} alto={750} respaldo="/placeholders/valoracion.svg" class="aspect-[4/3] w-full rounded-[var(--radio)] object-cover shadow-2xl ring-1 ring-white/15" />
         )}
       </div>
     </section>

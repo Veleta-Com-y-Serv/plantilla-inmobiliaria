@@ -11,10 +11,11 @@ secciones:
   - { id: valoracion, nombre: Valora tu vivienda }
   - { id: equipo, nombre: Equipo }
   - { id: opiniones, nombre: Opiniones }
+  - { id: preguntas, nombre: Preguntas frecuentes }
   - { id: contacto, nombre: Contacto }
 estilo: profesional
 plan_minimo: presencia
-version: 1.1.0
+version: 1.2.0
 base: astrowind
 demo_url: https://demo-plantilla-inmobiliaria.noexpertise.com
 activa: true
@@ -62,6 +63,12 @@ asistente:
     ayuda: "Las fotos las pones luego en Contenido."
     tipo: lista
     campos: [secciones.equipo.personas]
+  - id: preguntas
+    titulo: "Preguntas frecuentes"
+    pregunta: "¿Qué os preguntan más a menudo? Escribe cada pregunta y lo que respondéis."
+    ayuda: "Si lo prefieres, añádelos luego en Contenido."
+    tipo: lista
+    campos: [secciones.preguntas.preguntas]
   - id: fotos
     titulo: "Tus fotos"
     pregunta: "Pon una foto de portada y, si quieres, alguna más."
