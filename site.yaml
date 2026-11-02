@@ -54,13 +54,98 @@ secciones:
     texto: Una selección de lo que tenemos esta semana. Si no ves lo que buscas, pregúntanos.
     cta: { texto: Busco algo concreto, url: "/#contacto" }
     inmuebles:
-      - { titulo: Piso reformado con garaje, zona: "Centro · Cánovas", precio: "189.000 €", operacion: Venta, metros: "112", habitaciones: "3", banos: "2", texto: "Exterior, con ascensor y plaza de garaje en el mismo edificio.", imagen: /fotos/inmueble-1.jpg, destacado: true }
-      - { titulo: Ático con terraza, zona: Nuevo Cáceres, precio: "850 €/mes", operacion: Alquiler, metros: "85", habitaciones: "2", banos: "1", texto: Terraza de 30 m² con vistas a la sierra. Sin muebles., imagen: /fotos/inmueble-2.jpg, destacado: false }
-      - { titulo: Casa de piedra con patio, zona: Parte Antigua, precio: "265.000 €", operacion: Venta, metros: "160", habitaciones: "4", banos: "2", texto: Rehabilitada en 2021. Patio interior y vigas de madera vista., imagen: /fotos/inmueble-3.jpg, destacado: true }
-      - { titulo: Chalet con piscina, zona: Sierra de Fuentes, precio: "248.000 €", operacion: Venta, metros: "210", habitaciones: "4", banos: "3", texto: Parcela de 600 m² con piscina y barbacoa. A 10 minutos de Cáceres., imagen: /fotos/inmueble-4.jpg, destacado: false }
+      - titulo: Piso reformado con garaje
+        zona: "Centro · Cánovas"
+        precio: "189.000 €"
+        operacion: Venta
+        metros: "112"
+        habitaciones: "3"
+        banos: "2"
+        texto: "Exterior, con ascensor y plaza de garaje en el mismo edificio."
+        imagen: /fotos/inmueble-1.jpg
+        destacado: true
+        detalle: |
+          Un piso pensado para vivir sin hacer obras. Está reformado por completo: instalación eléctrica y de fontanería nuevas, suelo de madera clara en todas las estancias y ventanas con buen aislamiento. El salón, muy luminoso, da a la calle y se abre a una cocina independiente con zona de lavadero.
+
+          Los tres dormitorios están bien repartidos. El principal tiene baño propio y armario empotrado; los otros dos comparten el segundo baño y sirven igual para niños que para despacho. Al ser exterior, entra luz natural a cualquier hora y se ventila con facilidad.
+
+          El edificio tiene ascensor y la plaza de garaje está en el mismo portal, algo poco habitual en esta zona. Desde la puerta se llega andando a los comercios, los colegios y el paseo de Cánovas.
+
+          Lo visitamos con calma y te preparamos la documentación: nota simple, certificado energético y recibos de la comunidad. Si necesitas financiación, te ponemos en contacto con asesores de confianza antes de hacer ninguna oferta.
+      - titulo: Ático con terraza
+        zona: Nuevo Cáceres
+        precio: "850 €/mes"
+        operacion: Alquiler
+        metros: "85"
+        habitaciones: "2"
+        banos: "1"
+        texto: "Terraza de 30 m² con vistas a la sierra. Sin muebles."
+        imagen: /fotos/inmueble-2.jpg
+        destacado: false
+        detalle: |
+          El ático es, sobre todo, una terraza con vistas a la sierra. Desde el salón se sale directamente a ella, y es el lugar donde se hace la vida en cuanto el tiempo acompaña: cenas, desayunos al sol o simplemente leer con tranquilidad.
+
+          Se alquila sin muebles, de modo que el inquilino puede amueblarlo a su gusto. Tiene dos dormitorios con armarios empotrados, un baño completo y una cocina abierta al salón con espacio para una mesa. La orientación garantiza luz durante todo el día.
+
+          Está en una zona tranquila de Nuevo Cáceres, con colegios, parques y supermercados cerca. Es una vivienda muy apropiada para una pareja o para una familia pequeña que busque estabilidad y buenas vistas.
+
+          Nos ocupamos de todo el proceso: te pedimos la documentación habitual, comprobamos referencias y preparamos el contrato con la fianza y las condiciones por escrito. Pregúntanos por las fechas de entrada y organizamos una visita cuando te venga bien.
+      - titulo: Casa de piedra con patio
+        zona: Parte Antigua
+        precio: "265.000 €"
+        operacion: Venta
+        metros: "160"
+        habitaciones: "4"
+        banos: "2"
+        texto: "Rehabilitada en 2021. Patio interior y vigas de madera vista."
+        imagen: /fotos/inmueble-3.jpg
+        destacado: true
+        detalle: |
+          Una casa de piedra en pleno casco histórico que se ha rehabilitado respetando lo que tenía de bueno: muros de granito, vigas de madera vista y un patio interior empedrado donde entra la luz de mediodía. Por dentro es cálida y fresca a la vez, como son estas casas cuando están bien hechas.
+
+          La distribución es muy cómoda para una familia. Tiene cuatro dormitorios, dos baños y un salón amplio junto a la cocina, que se abre al patio. En verano el patio funciona como una estancia más, con macetas, sombra y espacio para comer fuera.
+
+          Al estar en la Parte Antigua, todo queda cerca a pie: la Plaza Mayor, las tiendas de siempre y los restaurantes. Es una zona con mucho encanto y con una demanda muy estable, tanto para vivir como para invertir.
+
+          Antes de enseñártela te contamos con claridad su situación: referencia catastral, cargas y certificado energético. Y si quieres, te acompañamos a ver otras casas similares para que compares con criterio.
+      - titulo: Chalet con piscina
+        zona: Sierra de Fuentes
+        precio: "248.000 €"
+        operacion: Venta
+        metros: "210"
+        habitaciones: "4"
+        banos: "3"
+        texto: "Parcela de 600 m² con piscina y barbacoa. A 10 minutos de Cáceres."
+        imagen: /fotos/inmueble-4.jpg
+        destacado: false
+        detalle: |
+          Un chalet para quien quiere espacio, jardín y piscina sin alejarse de la ciudad. La parcela está cercada y tiene zona de césped, árboles frutales, una barbacoa cubierta y, por supuesto, la piscina, que es el centro de la casa durante los meses de calor.
+
+          La vivienda se reparte en dos plantas. Abajo están el salón con chimenea, la cocina amplia y un aseo; arriba, los cuatro dormitorios y dos baños más. Hay además un porche donde se puede comer a la sombra y un garaje para varios vehículos.
+
+          Está en Sierra de Fuentes, un entorno tranquilo y con vistas abiertas, a diez minutos de Cáceres. Es ideal para una familia que trabaje en la ciudad pero quiera vivir con más calma, o para quien busque una segunda residencia.
+
+          Te enseñamos la parcela con todos sus detalles y te explicamos los gastos que conlleva mantenerla. También revisamos contigo la documentación y el estado de las instalaciones antes de que decidas nada.
       - { titulo: Piso junto al campus, zona: Mejostilla, precio: "620 €/mes", operacion: Alquiler, metros: "90", habitaciones: "3", banos: "1", texto: Amueblado y con calefacción central. Libre en septiembre., imagen: /fotos/inmueble-5.jpg, destacado: false }
       - { titulo: Local con escaparate, zona: Avenida de Alemania, precio: "95.000 €", operacion: Venta, metros: "74", habitaciones: "", banos: "1", texto: Diáfano y a pie de calle. Preparado para cualquier negocio., imagen: /fotos/inmueble-6.jpg, destacado: false }
-      - { titulo: Adosado con jardín, zona: Casar de Cáceres, precio: "139.000 €", operacion: Venta, metros: "145", habitaciones: "3", banos: "2", texto: "Tres plantas, jardín delantero y trastero.", imagen: /fotos/inmueble-7.jpg, destacado: false }
+      - titulo: Adosado con jardín
+        zona: Casar de Cáceres
+        precio: "139.000 €"
+        operacion: Venta
+        metros: "145"
+        habitaciones: "3"
+        banos: "2"
+        texto: "Tres plantas, jardín delantero y trastero."
+        imagen: /fotos/inmueble-7.jpg
+        destacado: false
+        detalle: |
+          Un adosado de tres plantas pensado para una familia que quiere crecer sin renunciar a un precio razonable. El jardín delantero sirve de entrada y de zona de juegos, y el trastero resuelve el eterno problema de dónde guardar las cosas.
+
+          En la planta baja están el salón comedor y la cocina, con salida al exterior. En la primera planta se encuentran los tres dormitorios y dos baños, y la planta superior queda libre para usarla como estudio, sala de juegos o taller. Es una distribución muy práctica y fácil de adaptar.
+
+          Casar de Cáceres es un pueblo tranquilo, con colegio, comercios y servicios a mano, y muy bien comunicado con la capital. Aquí se vive con otro ritmo, con vecinos conocidos y calles donde los niños pueden salir a jugar.
+
+          Si te interesa, concertamos una visita y te explicamos todo el proceso: reserva, hipoteca, impuestos y firma en notaría. Estamos contigo hasta que tengas las llaves en la mano.
       - { titulo: Estudio luminoso, zona: Parte Antigua, precio: "480 €/mes", operacion: Alquiler, metros: "42", habitaciones: "1", banos: "1", texto: Amueblado y a dos minutos de la Plaza Mayor., imagen: /fotos/inmueble-8.jpg, destacado: false }
 
   servicios:
@@ -80,15 +165,25 @@ secciones:
     titulo: Conocemos cada barrio
     texto: Trabajamos en Cáceres capital y en los pueblos a menos de veinte minutos.
     imagen: /fotos/zonas.jpg
+    titulo_pagina: "Inmobiliaria en {zona}"
+    texto_pagina: "{negocio} te ayuda a comprar, vender o alquilar en {zona}."
     items:
-      - { titulo: Parte Antigua, texto: Casas con historia y pisos rehabilitados. }
-      - { titulo: "Centro · Cánovas", texto: Pisos amplios junto al paseo. }
-      - { titulo: Nuevo Cáceres, texto: Zona tranquila con colegios y parques. }
-      - { titulo: Mejostilla, texto: Cerca del campus y bien comunicada. }
-      - { titulo: Casar de Cáceres }
-      - { titulo: Malpartida de Cáceres }
-      - { titulo: Sierra de Fuentes }
-      - { titulo: Aldea Moret }
+      - titulo: Parte Antigua
+        texto: "Casas con historia, patios interiores y pisos rehabilitados dentro del casco histórico. Aquí vendemos y alquilamos viviendas con mucho carácter, muy buscadas tanto por quien quiere vivir en el centro como por quien busca una inversión estable. Conocemos la normativa de la zona, las ayudas a la rehabilitación y el estado real de cada edificio, y te lo explicamos antes de visitar nada. Todo queda a pie: la Plaza Mayor, el comercio de siempre y los restaurantes."
+      - titulo: Centro · Cánovas
+        texto: "Pisos amplios, exteriores y con ascensor junto al paseo de Cánovas, una de las zonas más cómodas de la ciudad para vivir sin coche. Mucho comercio, colegios y servicios a mano. Trabajamos compraventas y alquileres de viviendas familiares, algunas ya reformadas y otras para actualizar a tu gusto. Si tienes un piso aquí y quieres saber cuánto vale, lo valoramos sin coste comparándolo con ventas reales del barrio."
+      - titulo: Nuevo Cáceres
+        texto: "Zona residencial y tranquila, con colegios, parques y supermercados cerca. Es el barrio que más nos piden las familias que quieren espacio y buenas comunicaciones. Aquí encontrarás áticos con terraza, pisos con garaje y trastero y viviendas de varias alturas, tanto en venta como en alquiler. Te acompañamos en las visitas y en la negociación, y nos encargamos del contrato si alquilas o de la notaría si compras."
+      - titulo: Mejostilla
+        texto: "Un barrio bien comunicado y cercano al campus, con una demanda de alquiler muy constante. Buscamos pisos amueblados y con calefacción para estudiantes, profesores y familias que necesitan vivir cerca de todo. Si eres propietario, seleccionamos inquilinos con garantías, preparamos el contrato y llevamos la gestión del día a día. Si buscas, te enseñamos solo las viviendas que encajan con lo que pides, sin perder el tiempo en visitas que no valen la pena."
+      - titulo: Casar de Cáceres
+        texto: "Un pueblo tranquilo y muy bien comunicado con la capital, con colegio, comercios y servicios propios. Es la opción de muchas familias que buscan una casa con jardín, más metros y un precio más contenido que en la ciudad. Aquí tenemos adosados, casas con patio y parcelas. Conocemos a los vecinos, las calles y los precios de cada una, y te contamos con sinceridad qué merece la pena y qué no."
+      - titulo: Malpartida de Cáceres
+        texto: "Un pueblo con mucha vida cultural, rodeado de paisaje de dehesa y granito, a un paso de Cáceres. Aquí buscan casa quienes quieren calma sin alejarse de la ciudad. Trabajamos casas de pueblo, viviendas con corral y pisos pequeños, tanto en venta como en alquiler. Te ayudamos a comprobar la documentación, el estado de la vivienda y las posibles reformas, para que decidas con toda la información."
+      - titulo: Sierra de Fuentes
+        texto: "Un entorno de campo, con vistas abiertas a la sierra y parcelas amplias, muy cerca de Cáceres. Es la zona de los chalets con piscina, los porches y las barbacoas, y de las casas pensadas para disfrutar del exterior. Si quieres vender tu chalet, lo valoramos teniendo en cuenta parcela, instalaciones y orientación. Si buscas, te enseñamos las opciones disponibles y te explicamos los gastos que conlleva mantener una casa así."
+      - titulo: Aldea Moret
+        texto: "Un barrio tranquilo en las afueras de Cáceres, con aire de pueblo y todos los servicios cerca. Aquí encontrarás viviendas unifamiliares y pisos a precios accesibles, buenos para quienes empiezan o para quienes prefieren una vida más sosegada. Te asesoramos en cada paso: la elección de la vivienda, la negociación con el propietario, la hipoteca y la firma. Y si vendes, te decimos con claridad en qué precio tiene sentido anunciarla."
 
   valoracion:
     activa: true

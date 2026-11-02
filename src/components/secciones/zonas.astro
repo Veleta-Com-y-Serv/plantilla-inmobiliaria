@@ -1,7 +1,9 @@
 ---
 // Zonas: fichas pequeñas con chincheta (items: titulo = barrio o localidad, texto opcional) junto a una imagen (mapa o vista).
+// Las zonas con `texto` tienen página propia (/zonas/<slug>/): su ficha es un enlace y el texto sale recortado.
 import { seccion } from '../../data/site';
 import { altSeccion } from '../../lib/seo';
+import { enlaceDe, resumen } from '../../lib/paginas';
 import Seccion from '../ui/Seccion.astro';
 import Titular from '../ui/Titular.astro';
 import Imagen from '../ui/Imagen.astro';
@@ -20,11 +22,11 @@ const items = s ? s.items.filter((i) => i.titulo) : [];
           {items.length > 0 && (
             <ul class:list={['grid gap-3 sm:grid-cols-2', !s.imagen && 'lg:grid-cols-4']}>
               {items.map((z) => (
-                <li class="ficha flex gap-3 px-4 py-3">
+                <li class="ficha zona-ficha flex gap-3 px-4 py-3">
                   <Icono nombre="mapa" tam={18} class="mt-0.5 shrink-0 text-[var(--c-acento-texto)]" />
                   <div class="min-w-0">
-                    <p class="font-bold text-primario">{z.titulo}</p>
-                    {z.texto && <p class="text-sm opacity-75">{z.texto}</p>}
+                    <p class="font-bold text-primario">{enlaceDe(z) ? <a href={enlaceDe(z)} class="zona-enlace">{z.titulo}</a> : z.titulo}</p>
+                    {z.texto && <p class="text-sm opacity-75">{resumen(z.texto, 110)}</p>}
                   </div>
                 </li>
               ))}
@@ -45,5 +47,10 @@ const items = s ? s.items.filter((i) => i.titulo) : [];
 }
 
 <style>
+  .zona-ficha { position: relative; }
+  .zona-enlace { text-decoration: none; color: inherit; }
+  .zona-enlace::after { content: ""; position: absolute; inset: 0; }
+  .zona-enlace:focus-visible { outline: none; }
+  .zona-ficha:has(.zona-enlace:focus-visible) { outline: 2px solid var(--c-primario); outline-offset: 2px; }
   .zonas-marco::before { content: ""; position: absolute; right: -0.6rem; bottom: -0.6rem; width: 45%; height: 45%; border-radius: var(--radio); background: var(--c-acento); }
 </style>

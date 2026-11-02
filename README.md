@@ -15,3 +15,8 @@ npm run build    # web estática en dist/
 ```
 
 Basada en [AstroWind](https://github.com/onwidget/astrowind) © onWidget, licencia MIT (`LICENSE-ASTROWIND.md`). Imágenes de relleno (`public/placeholders/`) dibujadas para esta plantilla, sin licencias de terceros.
+
+## Páginas propias
+- Cada elemento de `secciones.inmuebles.inmuebles` con `detalle` tiene su página en `/inmuebles/<slug>/` (`src/pages/[coleccion]/[slug].astro`).
+- Cada zona de `secciones.zonas.items` con `texto` tiene su página en `/zonas/<slug>/` (`src/pages/zonas/[slug].astro`); en la sección, `titulo_pagina` y `texto_pagina` con {zona} y {negocio}.
+- Campos opcionales de los elementos con ficha: `detalle` (párrafos separados por una línea en blanco), `slug` e `imagenes` («/fotos/a.jpg; /fotos/b.jpg»).
