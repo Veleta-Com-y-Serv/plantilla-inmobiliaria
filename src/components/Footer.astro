@@ -4,6 +4,7 @@
 // «Web creada con NoExpertise» se muestra si site.yaml → marca_pie no es false.
 import { site, tel, mapa, buscarSeccion } from '../data/site';
 import Icono from './ui/Icono.astro';
+import { rutaDeSeccion } from '../lib/multipagina';
 interface Props { variante?: string }
 const { variante = 'inmo' } = Astro.props;
 const c = site.contacto;
@@ -12,8 +13,8 @@ const anio = new Date().getFullYear();
 const zonas = buscarSeccion('zonas');
 const servicios = buscarSeccion('servicios');
 const columnas = [
-  zonas && { titulo: zonas.s.antetitulo || zonas.s.titulo || '', url: `/#${zonas.id}`, items: zonas.s.items.map((i) => i.titulo).filter(Boolean).slice(0, 8) },
-  servicios && { titulo: servicios.s.antetitulo || servicios.s.titulo || '', url: `/#${servicios.id}`, items: servicios.s.items.map((i) => i.titulo).filter(Boolean).slice(0, 8) },
+  zonas && { titulo: zonas.s.antetitulo || zonas.s.titulo || '', url: rutaDeSeccion(zonas.id), items: zonas.s.items.map((i) => i.titulo).filter(Boolean).slice(0, 8) },
+  servicios && { titulo: servicios.s.antetitulo || servicios.s.titulo || '', url: rutaDeSeccion(servicios.id), items: servicios.s.items.map((i) => i.titulo).filter(Boolean).slice(0, 8) },
 ].filter((col) => col && col.items.length > 0) as { titulo: string; url: string; items: string[] }[];
 ---
 

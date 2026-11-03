@@ -11,6 +11,7 @@ import { seccion, site, tel, whatsapp } from '../../data/site';
 import { enlaceDe, introZona, resumen, tituloZona, zonasConPagina } from '../../lib/paginas';
 import type { Zona } from '../../lib/paginas';
 import { jsonLdMigas, jsonLdZona, urlBase } from '../../lib/seo';
+import { enlace, rutaDeSeccion } from '../../lib/multipagina';
 
 export function getStaticPaths() {
   return zonasConPagina().map((z) => ({ params: { slug: z.slug }, props: { z } }));
@@ -24,7 +25,7 @@ const intro = introZona(z);
 const nombreSeccion = String(z.seccion.antetitulo || z.seccion.titulo || 'Zonas').trim();
 const migas = [
   { nombre: 'Inicio', ruta: '/' },
-  { nombre: nombreSeccion, ruta: `/#${z.idSeccion}` },
+  { nombre: nombreSeccion, ruta: rutaDeSeccion(z.idSeccion) },
   { nombre: z.nombre, ruta: z.url },
 ];
 const c = site.contacto;
@@ -38,7 +39,7 @@ const opinionesSec = seccion('opiniones');
 const todas = opinionesSec ? opinionesSec.testimonios.filter((t) => t?.texto) : [];
 const nombra = (t: { texto: string; autor?: string }) => norm(`${t.texto} ${t.autor ?? ''}`).includes(norm(z.nombre));
 const opiniones = [...todas.filter(nombra), ...todas.filter((t) => !nombra(t))].slice(0, 3);
-const valorar = seccion('valoracion') ? '/#valoracion' : site.boton_cabecera?.url || '/#contacto';
+const valorar = seccion('valoracion') ? enlace('/#valoracion') : site.boton_cabecera?.url || enlace('/#contacto');
 const wa = whatsapp(c.whatsapp, `Hola, quiero información sobre ${z.nombre}`);
 const otras = zonasConPagina().filter((x) => x !== z);
 ---
