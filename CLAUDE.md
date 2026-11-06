@@ -40,7 +40,7 @@ Cada sección es un componente que solo se pinta si `site.yaml → secciones.<id
 - `zonas.items[]`: `{ titulo, texto }` (`titulo` = barrio o localidad; `texto` opcional). `zonas.imagen`: mapa o vista de la ciudad.
 - `valoracion`: `titulo`, `texto`, `cta`, `imagen` (opcional), `items[]` (razones `{ titulo, texto, icono? }`).
 - `opiniones.nota`: frase opcional bajo las opiniones (p. ej. «Opiniones de clientes publicadas en Google.»).
-- `contacto.opciones`: cadena con valores separados por «;» para el desplegable «Me interesa». Vacía = títulos de `hero.items`.
+- `contacto.opciones`: cadena con valores separados por «;» para el desplegable «Me interesa». Vacía = sin desplegable.
 - Iconos disponibles: ver `src/components/ui/Icono.astro` (casa, llave, etiqueta, lupa, documento, edificio, superficie, cama, bano, mapa…).
 
 ## Reglas para órdenes

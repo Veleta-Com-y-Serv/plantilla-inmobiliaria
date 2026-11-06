@@ -233,4 +233,4 @@ secciones:
     antetitulo: Contacto
     titulo: Cuéntanos qué buscas
     texto: Te llamamos hoy mismo. También puedes pasar por la oficina, sin cita.
-    opciones: "Comprar; Alquilar; Vender; Gestión de alquiler; Otra consulta"   # «Me interesa» del formulario, separadas por «;» (vacío = accesos de la portada)
+    opciones: "Comprar; Alquilar; Vender; Gestión de alquiler; Otra consulta"   # «Me interesa» del formulario, separadas por «;» (vacío = sin desplegable)

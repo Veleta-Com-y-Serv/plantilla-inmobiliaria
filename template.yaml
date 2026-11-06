@@ -15,7 +15,7 @@ secciones:
   - { id: contacto, nombre: Contacto }
 estilo: profesional
 plan_minimo: presencia
-version: 1.4.0
+version: 1.4.1
 base: astrowind
 demo_url: https://demo-plantilla-inmobiliaria.noexpertise.com
 activa: true

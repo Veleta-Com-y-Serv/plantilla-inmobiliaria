@@ -1,6 +1,6 @@
 ---
 // Contacto: panel marino con los datos de la oficina a la izquierda y formulario a la derecha.
-// «Me interesa» sale de `opciones` (cadena separada por «;»); si está vacía, de los accesos de la portada (hero.items).
+// «Me interesa» sale de `opciones` (cadena separada por «;»); si está vacía, no hay desplegable (no se toman los accesos de la portada: pueden ser insignias).
 import { seccion, site, tel, mapa, whatsapp } from '../../data/site';
 import Seccion from '../ui/Seccion.astro';
 import Icono from '../ui/Icono.astro';
@@ -9,7 +9,7 @@ interface Props { id: string }
 const s = seccion(Astro.props.id);
 const c = site.contacto;
 const desdeTexto = typeof s?.opciones === 'string' ? s.opciones.split(';').map((o) => o.trim()).filter(Boolean) : [];
-const opciones = desdeTexto.length ? desdeTexto : (site.secciones.hero?.items ?? []).map((i) => i.titulo).filter(Boolean);
+const opciones = desdeTexto;
 const datos = [
   c.telefono && { icono: 'telefono', etiqueta: 'Teléfono', valor: c.telefono, url: tel(c.telefono) },
   c.whatsapp && { icono: 'whatsapp', etiqueta: 'WhatsApp', valor: c.whatsapp, url: whatsapp(c.whatsapp) },
